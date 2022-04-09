@@ -69,6 +69,7 @@ router.get("/signup", isLoggedOut, (req, res, next) => {
          } 
      })
  })
+ module.exports = router;
 
 
 
