@@ -32,3 +32,14 @@ app.use("/", index);
 require("./error-handling")(app);
 
 module.exports = app;
+
+// app.js
+// ...
+//  Start handling routes here
+const index = require('./routes/index'); // <== already included
+app.use('/', index); // <== already included
+
+// authRouter needs to be added so paste the following lines:
+const authRouter = require('./routes/auth.routes'); // <== has to be added
+app.use('/', authRouter); // <== has to be added
+// ...
