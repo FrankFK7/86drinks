@@ -11,6 +11,19 @@
 
    <body>
 
+      <nav>
+         {{#if userInSession}}
+            <a href="/profile"> Profile </a> <br>
+            <form action="/logout" method="POST">
+               <button> Logout </button>
+            </form>
+         {{else}}
+            <a href="/signup"> Create an account </a> <br>
+            <a href="/login"> Login </a> <br>
+         {{/if}}
+
+      </nav>
+
       {{{body}}}
 
       <script src="/js/script.js"></script>
