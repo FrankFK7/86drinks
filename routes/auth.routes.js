@@ -30,7 +30,7 @@ console.log( username, email, password)
      // make sure passwords are strong:
      const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
      if (!regex.test(password)) {
-         console.log("password is worng")
+        //  console.log("password is worng")
          res 
          .status(500) 
          .render("auth-pages/signup", { errorMessage: "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter." });
@@ -51,7 +51,7 @@ console.log( username, email, password)
          })
      })
      .then(userFromDB => {
-         // console.log(`New user created: ${userFromDB}`);
+          console.log(`New user created: ${userFromDB}`);
          res.redirect("/profile")
      })
      .catch(err => {
@@ -142,6 +142,8 @@ router.post("/logout", (req, res, next) => {
 //                      ✅ add ✅
 router.get("/profile", isLoggedIn, (req, res, next) => {
     res.render("user-pages/profile-page");
+
+    
 })
 
 // POST route to change the profile image
