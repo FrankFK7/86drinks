@@ -9,14 +9,19 @@ require("./db");
 // https://www.npmjs.com/package/express
 const express = require("express");
 
+const path = require('path');
+
 // Handles the handlebars
 // https://www.npmjs.com/package/hbs
 const hbs = require("hbs");
-
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
+require("./config/session.config")(app);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
 
 // default value for title local
 const capitalized = require("./utils/capitalized");

@@ -2,7 +2,7 @@
 
 <div id="form">
   <h2>Signup</h2>
-  <form action="/signup" method="POST">
+  <form action="/create-account" method="POST">
 
     <label> Username
       <input type="text" name="username" placeholder="New user" />
@@ -17,10 +17,11 @@
     </label>
 
     <button type="submit">Create account</button>
-{{!-- views/auth/signup.hbs --}}
- 
-  <form action="/signup" method="POST">
 
     {{!-- error message will be added here --}}
+    
   </form>
+  {{#if errorMessage}}
+    <p><b> {{ errorMessage }} </b></p>
+{{/if}}
 </div>

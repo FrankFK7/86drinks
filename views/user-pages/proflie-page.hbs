@@ -1,0 +1,10 @@
+{{#if userInSession}}
+    <h3>Welcome, {{ userInSession.username }}</h3>
+
+    <button> <a href="/profile"> Reload! </a></button>
+
+{{else}}
+
+    <p> Welcome bartenders </p>
+
+{{/if}}
