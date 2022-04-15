@@ -121,6 +121,7 @@ router.post("/process-login", (req, res, next) => {
         // res.render("user-pages/profile-page", { userFromDB })
 
         req.session.currentUser = userFromDB;
+        console.log('current user:', req.session.currentUser)
         res.redirect("/profile");
       } else {
         // if passwords don't match, then send errorMessage to a user

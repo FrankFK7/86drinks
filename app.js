@@ -22,6 +22,8 @@ require("./config/session.config")(app);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+const globalUserObject = require("./config/global-user.config");
+app.use(globalUserObject);
 
 // default value for title local
 const capitalized = require("./utils/capitalized");
