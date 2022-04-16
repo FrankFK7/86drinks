@@ -1,0 +1,36 @@
+<h2> Creat a original cocktail </h2>
+
+<form action="/" method="POST">
+    <label>
+        Title: <input type="text" name="title" />
+    <label>
+
+    <br>
+
+    <label>
+        Description: <textarea name="description" cols="30" rows="5"> </textarea>
+    <label>
+
+    <br>
+
+    <label>
+        :
+        <select name="">
+            <option value=""></option>
+
+            {{#each }}
+                
+            {{/each}}
+        </select>
+    <label>
+
+    <br>
+
+    <label>
+         <input type="number" name="rating" min="1" max="10" />
+    <label>
+
+    <br>
+
+    <button> Save </button>
+</form>

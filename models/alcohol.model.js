@@ -16,5 +16,5 @@ const drinksSchema = new Schema(
 
 // instead of typing mongoose.model(), we can just say model() beacuse we destructured "model"
 // variable in line 4
-const drinks = model("Cocktails", drinksSchema);
+const drinks = model("Drinks", drinksSchema);
 module.exports = drinks;
