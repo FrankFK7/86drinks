@@ -1,0 +1,21 @@
+<h2> cocktails List </h2>
+
+<div id="random">
+    
+<ul>
+    {{#each randomdrinks }}
+     <form action="/cocktails-list" method="GET"> <br>
+                 
+        <li> 
+        <button> <a href="/cocktails-list/{{id}}"> {{ strDrink }} </a> search </button>
+
+        </li>
+    
+            </li>
+            </form>
+    {{/each}}
+</ul>
+
+</div>
+
+

@@ -2,11 +2,13 @@
     <h3>Welcome, {{ userInSession.username }}</h3>
 
     <button> <a href="/profile"> Reload! </a></button>
+<h1> Welcome bartenders </h1>
+ <p>Welcome we are wonderful that you can be apart of the mix</p>
+  <button> <a href="/cocktails-create"> Creat cocktails </a></button>
 
 {{else}}
-
-    <h1> Welcome bartenders </h1>
- <p>Welcome we are wonderful that you can be apart of the mix</p>
+ <h3> No logged in user! </h3>
+   
 {{/if}}
 
 {{#if errorMessage}}

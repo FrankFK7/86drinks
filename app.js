@@ -26,11 +26,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 
+
 // default value for title local
 const capitalized = require("./utils/capitalized");
 const projectName = "86drinks";
 
-app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
+app.locals.appTitle = `${capitalized(projectName)} `;
 
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
@@ -39,8 +40,8 @@ app.use("/", index);
 const authRoutes = require("./routes/auth.routes");
 app.use("/", authRoutes);
 
-// const cocktailsRoutes = require("./routes/cocktails.routes");
-// app.use("/", cocktailsRoutes);
+const cocktailsRoutes = require("./routes/cocktails.routes");
+app.use("/", cocktailsRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);

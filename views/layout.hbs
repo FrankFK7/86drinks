@@ -8,21 +8,32 @@
       <title>{{appTitle}}</title>
       <link rel="stylesheet" href="/stylesheets/style.css" />
    </head>
+   <!-- add the navbar code below -->
+    
 
    <body>
 
       <nav>
+         <ul>
+
+         <li id="to-left">
+          <p><a href="/"> HOME </a></p>
+        </li>
          {{#if userInSession}}
             <a href="/profile"> Profile </a> <br>
-            <form action="/logout" method="POST">
+            <form action="/logout" method="POST"> <br>
                <button> Logout </button>
-            </form>
+            </form>  
          {{else}}
             <a href="/signup"> Create an account </a> <br>
+             <br>
             <a href="/login"> Login </a> <br>
          {{/if}}
+         <br>
 
-      </nav>
+
+
+      
 
       {{{body}}}
 
