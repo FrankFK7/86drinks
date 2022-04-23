@@ -3,15 +3,16 @@
 
 
 <ul>
-    {{#each createCocktails}}
-    <form action="/cocktails-details" method="POST">
+    {{#each cocktailfromDB}}
+    
 
-    <li>{{title}}</li>
+    <h2>{{title}}</h2>
     <li>{{glass}}</li>
     <li>{{liquor}}</li>
     <li>{{instructions}}</li>
+    <br>
    
-    </form>
+    
     {{/each}}
 </ul>
 

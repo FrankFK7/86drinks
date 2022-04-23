@@ -42,7 +42,7 @@ router.post("/cocktails-create", (req, res, next) =>{
 
     const { title, glass, liquor, instructions } = req.body;
     
-    alcohol.create({title, liquor,instructions,glass})
+    alcohol.create({title, liquor,instructions,glass, creator:req.session.currentUser._id})
     .then(cocktailsfromDB => {
      
         res.render("cocktails/cocktails-new",{cocktailsfromDB});
@@ -57,23 +57,56 @@ router.post("/cocktails-create", (req, res, next) =>{
 
 // -------------------------------------------------------------------------------------------------------------------//
 router.get("/cocktails-details", (req, res, next) => {
-    alcohol.findById(req.params._id) 
-    .then(createCocktail =>{
-        console.log(createCocktail)
-        res.render("cocktails/cocktails-details.hbs")
+    alcohol.find({creator:req.session.currentUser._id}) 
+    .then(cocktailfromDB=>{
+        // console.log(cocktailfromDB)
+        res.render("cocktails/cocktails-details.hbs", {cocktailfromDB})
     })
     
     .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))
 
      })
-
-    router.post("/cocktails-details", (req, res, next) => {
-       
-        const { title, glass, liquor, instructions } = req.body;
-        alcohol.findById({ title, glass, liquor, instructions })
-        .then( createCocktails =>{
-            console.log("new author created: ", createCocktails);
+    
+    //  "/all-cocktails
+    router.get("/all-cocktails", (req, res, next) => {
+        alcohol.find({creator:req.session.currentUser._id}) 
+        .then(cocktailfromDB=>{
+            console.log(cocktailfromDB)
+        res.render("cocktails/all-cocktails.hbs", {cocktailfromDB})
         })
+        
         .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))
+    
+         })
+
+// -------------------------------------------------------------------------------------------------------------------//
+router.get("/cocktails-edits/:cocktailid/edit", (req, res, next) => {
+      alcohol.findById(req.params.cocktailid)
+    .then(drinksThatWillBeEdited => {
+        res.render("cocktails/cocktails-edits", {drinksThatWillBeEdited} )
+
     })
+    .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))     
+})
+
+
+
+
+router.post("/cocktails-edits/:drinksThatWillBeEdited", (req, res, next) => {
+
+    const { title, glass, liquor, instructions } = req.body
+alcohol.findByIdAndUpdate(req.params.drinksThatWillBeEdited,{title, glass, liquor, instructions}, {new: true})
+
+
+.then(drinksThatWillBeEdited =>{
+res.render("cocktails/cocktails-edits",{drinksThatWillBeEdited})
+})
+.catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))     
+})
+
+
+
+
+
+
 module.exports = router;

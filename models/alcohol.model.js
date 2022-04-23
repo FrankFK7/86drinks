@@ -8,7 +8,10 @@ const cocktailsSchema = new Schema(
      liquor: String,
     instructions: String,
     
-    
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      },
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
