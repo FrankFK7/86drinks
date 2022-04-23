@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url(https://wallpapercave.com/wp/wp3322425.jpg);
+  background-image: url("https://cdn.wallpapersafari.com/38/66/zATbIB.jpg") ;
 background-size: cover;
 width: 40px;
 height: 30px;
@@ -9,21 +9,19 @@ height: 30px;
 a {
   color: rebeccapurple;
 }
-
 h1 {
-  color: yellow;
+  color:darkred
+text-align center
 }
 h2{
   color: gold;
 }
 form{
- color: gold;
+  color: whitesmoke;
+}
+p{
+  text-align: center;
+  color: aqua;
+ 
 }
 
-p{
-  text-align: -webkit-center;
-  color:whitesmoke
-}
-button{
-  color: red;
-}

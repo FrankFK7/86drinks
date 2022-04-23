@@ -1,17 +1,22 @@
-<h2> cocktails List </h2>
+<h2 style="text-align: center;"> Cocktail Roulette</h2>
 
 <div id="random">
     
 <ul>
     {{#each randomdrinks }}
-     <form action="/cocktails-list" method="GET"> <br>
-                 
-        <li> 
-        <button> <a href="/cocktails-list/{{id}}"> {{ strDrink }} </a> search </button>
-
-        </li>
+     <form action="/cocktails-list" method="GET" style="text-align: center;">
+            
+                 <button> pick a random cocktail </button> 
+          <br>
+         Cocktail: {{ strDrink }} <br>
+          Catagory: {{strCategory}} <br> 
+          Glass: {{strGlass}} <br> 
+          Ingredient: {{strIngredient1}} {{strIngredient2}} {{strIngredient3}} <br> 
+         Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>
+ <img src="{{strDrinkThumb}}"alt=""> <br> 
+        
     
-            </li>
+            
             </form>
     {{/each}}
 </ul>

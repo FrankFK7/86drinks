@@ -1,1 +1,19 @@
-<h1>hello</h1>
+<h1>your cocktails-list</h1>
+<div id="yourList">
+
+
+<ul>
+    {{#each createCocktails}}
+    <form action="/cocktails-details" method="POST">
+
+    <li>{{title}}</li>
+    <li>{{glass}}</li>
+    <li>{{liquor}}</li>
+    <li>{{instructions}}</li>
+   
+    </form>
+    {{/each}}
+</ul>
+
+
+</div>
