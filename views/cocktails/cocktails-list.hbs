@@ -6,12 +6,17 @@
     {{#each randomdrinks }}
      <form action="/cocktails-list" method="GET"> <br>
                  
-        <li> 
-        <button> <a href="/cocktails-list/{{id}}"> {{ strDrink }} </a> search </button>
+        
+         Cocktail: {{ strDrink }} <br>
+          Catagory: {{strCategory}} <br> 
+          Glass: {{strGlass}} <br> 
+          Ingredient: {{strIngredient1}} {{strIngredient2}} {{strIngredient3}} <br> 
+         Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>
+           <img src="{{strDrinkThumb}}"alt=""> <br> <button> pick a random cocktail </button> 
 
-        </li>
+        
     
-            </li>
+            
             </form>
     {{/each}}
 </ul>

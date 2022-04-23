@@ -3,10 +3,10 @@ const { Schema, model } = require("mongoose");
 const cocktailsSchema = new Schema(
   {
     // title: {type: String, unique: true},
-     Title: String,
+     title: String,
      glass: String,
      liquor: String,
-    Instructions: String,
+    instructions: String,
     
     
   },
