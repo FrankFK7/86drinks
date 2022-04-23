@@ -40,9 +40,9 @@ router.get("/cocktails-create",(req, res, next)=>{
 router.post("/cocktails-create", (req, res, next) =>{
 
 
-    const { title, liquor,instructions,glass } = req.body;
+    const { title,glass, liquor,instructions } = req.body;
     
-    alcohol.create({title, liquor,instructions,glass})
+    alcohol.create({title,glass, liquor, instructions})
     .then((newDrinks) => {
      
         res.render("cocktails/cocktails-new",{newDrinks});
