@@ -1,15 +1,23 @@
-<h2> Login </h2>
+<h2 style="color: floralwhite;"> Login </h2>
+
+
 
 <form action="/process-login" method="POST">
 
-    <label> Email: 
-        <input type="email" name="email" required />
+
+
+
+
+
+<div class="form-floating mb-3"> 
+ <label> Email: 
+        <input type="email" name="email" class="form-control" id="floatingPassword" placeholder="Username" required />
     </label>
 
     <br>
 
     <label> Password: 
-        <input type="password" name="password" required />
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required />
     </label>
 
     <br>
@@ -17,6 +25,8 @@
     <button type="submit"> Login </button>
 
 </form>
+</div>
+   
 
 {{#if errorMessage}}
     <p><b> {{ errorMessage }} </b></p>

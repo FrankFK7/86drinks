@@ -1,0 +1,14 @@
+<h1> Your drink was added!</h1>
+
+<div id="allyourList">
+<ul>
+    {{#each cocktailfromDB}}
+   
+{{ strDrink }}
+   <h2> {{title}} </h2>
+   
+   <button> <a href="/cocktails-edits/{{_id}}/edit"> details-list!</a></button>
+    {{/each}}
+</ul>
+
+</div>

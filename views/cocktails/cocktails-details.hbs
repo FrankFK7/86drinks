@@ -1,19 +1,45 @@
-<h1>your cocktails-list</h1>
-<div id="yourList">
+<h2> Edit your Drinks </h2>
 
+<div id="random"> 
+    
 
-<ul>
-    {{#each createCocktails}}
-    <form action="/cocktails-details" method="POST">
-
-    <li>{{title}}</li>
-    <li>{{glass}}</li>
-    <li>{{liquor}}</li>
-    <li>{{instructions}}</li>
+    <form action="/cocktails-list2" method="Get" >
+    
+  
+</form>
+     
+             
+    {{#each randomdrinks }}
+    
+    <div  class="mx-auto" style="width: 200px;">
+      
+    
+    
+     <form action="/cocktails-list" method="POST"> <br>
+            
    
-    </form>
+        <h4 > 
+             Cocktail: {{ strDrink }} <br>
+          Catagory: {{strCategory}} <br> 
+          Glass: {{strGlass}} <br> 
+          Ingredient: {{strIngredient1}} {{strIngredient2}} {{strIngredient3}} <br> 
+         Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>
+           <div id="imgdrink">
+                <img src="{{strDrinkThumb}}" class="rounded mx-auto d-block"alt="" data-holder-rendered="true" width="250" height="250" /> <br> 
+
+        </h4> 
+           </div>
+    
+            <button type="submit" > Add </button>
+            </form>
+
+            
     {{/each}}
-</ul>
 
 
 </div>
+
+  <button type="submit"> Edit </button>
+  <button type="submit"> Save </button>
+  <button> <a href="/cocktails-details"> </a>Delete</button>
+</form>

@@ -1,27 +1,29 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-image: url("https://cdn.wallpapersafari.com/38/66/zATbIB.jpg") ;
-background-size: cover;
-width: 40px;
-height: 30px;
+  background-color: black;
+  background-image: url("https://wallpapercave.com/wp/wp1989394.jpg") ;
+}
+h1{
+  justify-content: center;
 }
 a {
-  color: rebeccapurple;
+  color: #00b7ff;
 }
-h1 {
-  color:darkred
-text-align center
-}
-h2{
-  color: gold;
-}
-form{
-  color: whitesmoke;
-}
-p{
-  text-align: center;
-  color: aqua;
  
+
+#random{
+  text-align: center;
+  /* font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px; */
 }
 
+.imgdrink{
+  text-align: center;
+  
+}
+
+
+#profile {
+  color: rgb(185, 14, 14);
+}

@@ -1,26 +1,40 @@
-<h2 style="text-align: center;"> Cocktail Roulette</h2>
+<h2>Cocktails List </h2>
 
-<div id="random">
+<div id="random"> 
     
-<ul>
+
+    <form action="/cocktails-list" method="Get" >
+    <input type="text" placeholder="Search.." name="searchTerm">
+  <button type="submit"><i class="fa fa-search"></i> Cocktails</button>
+</form>
+     
+             
     {{#each randomdrinks }}
-     <form action="/cocktails-list" method="GET" style="text-align: center;">
+    
+    <div  class="mx-auto" style="width: 200px;">
+      
+    
+    
+     <form action="/cocktails-list" method="POST"> <br>
             
-                 <button> pick a random cocktail </button> 
-          <br>
-         Cocktail: {{ strDrink }} <br>
+   
+        <h4 > 
+             Cocktail: {{ strDrink }} <br>
           Catagory: {{strCategory}} <br> 
           Glass: {{strGlass}} <br> 
           Ingredient: {{strIngredient1}} {{strIngredient2}} {{strIngredient3}} <br> 
          Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>
- <img src="{{strDrinkThumb}}"alt=""> <br> 
-        
+           <div id="imgdrink">
+                <img src="{{strDrinkThumb}}" class="rounded mx-auto d-block"alt="" data-holder-rendered="true" width="250" height="250" /> <br> 
+
+        </h4> 
+           </div>
     
-            
+            <button type="submit" > Add </button>
             </form>
+
+            
     {{/each}}
-</ul>
+
 
 </div>
-
-

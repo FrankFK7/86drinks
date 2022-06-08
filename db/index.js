@@ -17,3 +17,5 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to mongo: ", err);
   });
+
+  //MONGODB_URI=mongodb+srv://FrankFK7:Password123@cluster0.xaaxf.mongodb.net/86drinks?retryWrites=true&w=majority

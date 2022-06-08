@@ -9,7 +9,6 @@ const { isLoggedIn, isLoggedOut } = require("../config/route-guard.config");
 
 // GET route to display the signup form to a user
 
-
 router.get("/signup", isLoggedOut, (req, res, next) => {
   res.render("auth-pages/signup.hbs");
 });
@@ -37,10 +36,8 @@ router.post("/create-account", (req, res, next) => {
       errorMessage:
         "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
     });
-    return;
   }
-
-  bcryptjs
+  return bcryptjs
     .genSalt(saltRounds)
     .then((salt) => bcryptjs.hash(password, salt))
     .then((hashedPassword) => {
@@ -114,7 +111,7 @@ router.post("/process-login", (req, res, next) => {
         // res.render("user-pages/profile-page", { userFromDB })
 
         req.session.currentUser = userFromDB;
-        console.log('current user:', req.session.currentUser)
+        console.log("current user:", req.session.currentUser);
         res.redirect("/profile");
       } else {
         // if passwords don't match, then send errorMessage to a user
@@ -149,23 +146,4 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   res.render("user-pages/profile-page");
 });
 
-// POST route to change the profile image
-// <form action="/profile/change-image" method="POST" enctype="multipart/form-data">
-
-// router.post("/profile/change-image", cloudinary.single("image"), (req, res, next) => {
-
-//     User.findByIdAndUpdate(req.session.currentUser._id, { profileImg: req.file.path }, { new: true })
-//     .then(updatedUser => {
-
-//  to make sure the most updated changes are saved in the logged in user object
-// we are saving updated user in the session
-//         req.session.currentUser = updatedUser;
-//         res.redirect("/profile")
-//     })
-//     .catch(err => {
-//         console.log(err);
-//         next(err);
-//      })
-
-// })
 module.exports = router;

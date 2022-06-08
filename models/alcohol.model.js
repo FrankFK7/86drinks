@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const cocktailsSchema = new Schema(
+const alcoholSchema = new Schema(
   {
     // title: {type: String, unique: true},
      title: String,
@@ -8,10 +8,13 @@ const cocktailsSchema = new Schema(
      liquor: String,
     instructions: String,
     
-    
+    creator: {
+        type: Schema.Types.ObjectId,
+        ref: "User"
+      },
   },
   {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
+
     timestamps: true
   }
 );
@@ -21,4 +24,4 @@ const cocktailsSchema = new Schema(
 
 
 
-module.exports = model("cocktails", cocktailsSchema);
+module.exports = model("Alcohol", alcoholSchema);

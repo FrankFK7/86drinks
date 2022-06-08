@@ -1,14 +1,35 @@
-<div id="profile">
+<div class="justify-content-left" >
 
 
 {{#if userInSession}}
-    <h3>Welcome, {{ userInSession.username }}</h3>
 
-    <button> <a href="/profile"> Reload! </a></button>
-<h1> Welcome bartenders </h1>
- <p>Welcome we are wonderful that you can be apart of the mix</p>
-  <button> <a href="/cocktails-create"> Creat cocktails </a></button>
- <button> <a href="/cocktails-details"> your cocktails-list! </a></button>
+ {{!-- <img class="rounded-circle" src='{{userInSession.profilePicture}}' alt='Profile picture'
+            data-holder-rendered="true" width="250" height="250" /> --}}
+
+
+
+<br>
+   
+<h1 id=  "Welcome">Welcome, {{ userInSession.username }} </h1>
+ 
+<div class="btn-group">
+  <a href="/cocktails-create" class="btn btn-warning"
+  style =
+    "color: #ffc107;
+    background-color: #007bff;
+    border-color: #c707ff"
+>Create A Drink*</a>
+</div>
+
+<div class="btn-group">
+<a href="/cocktails-details" class="btn btn-warning"
+style =
+    "color: #ffc107;
+    background-color: #007bff;
+    border-color: #c707ff"
+>Edit Drink List*</a>
+</div>
+
 {{else}}
  <h3> No logged in user! </h3>
    
@@ -19,4 +40,4 @@
 {{/if}}
 
 
-</div>
+</div> 
