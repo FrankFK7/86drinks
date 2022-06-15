@@ -1,7 +1,10 @@
 <h2> Edit your Drinks </h2>
 
-<div id="random"> 
+<div id="yourList"> 
     
+<ul class="list-group list-group-flush">
+
+    {{#each cocktailfromDB}}
 
     <form action="/cocktails-list2" method="Get" >
     
@@ -13,7 +16,7 @@
     
     <div  class="mx-auto" style="width: 200px;">
       
-    
+    <a href="/books/{{_id}}/edit"> Edit this book </a>
     
      <form action="/cocktails-list" method="POST"> <br>
             
@@ -38,8 +41,8 @@
 
 
 </div>
-
-  <button type="submit"> Edit </button>
-  <button type="submit"> Save </button>
+ <button> <a href="/cocktails-details"> </a>Save</button>
+</form> <button> <a href="/cocktails-details"> </a>Edit</button>
+</form>
   <button> <a href="/cocktails-details"> </a>Delete</button>
 </form>

@@ -1,24 +1,22 @@
 <h2>Cocktails List </h2>
 
 <div id="random"> 
-    
+
+    <form action="//{{_id}}/edit" method="POST"></form>
 
     <form action="/cocktails-list" method="Get" >
-    <input type="text" placeholder="Search.." name="searchTerm">
-  <button type="submit"><i class="fa fa-search"></i> Cocktails</button>
+    <input type="text" placeholder="Search spirits" name="searchTerm">
+
+  <button type="submit"><i class="fa fa-search"></i> Search</button>
+
 </form>
      
              
     {{#each randomdrinks }}
     
-    <div  class="mx-auto" style="width: 200px;">
+    <div  class="mx-auto" style="width: 300px;">
       
-    
-    
-     <form action="/cocktails-list" method="POST"> <br>
-            
-   
-        <h4 > 
+          <h4 > 
              Cocktail: {{ strDrink }} <br>
           Catagory: {{strCategory}} <br> 
           Glass: {{strGlass}} <br> 
@@ -26,10 +24,15 @@
          Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>
            <div id="imgdrink">
                 <img src="{{strDrinkThumb}}" class="rounded mx-auto d-block"alt="" data-holder-rendered="true" width="250" height="250" /> <br> 
-
+</div>
         </h4> 
-           </div>
     
+     <form action="/cocktails-list2" method="POST"> 
+     <br>
+  <input type="text" name="title" value="{{strDrink}}" hidden>   
+  <input type="text" name="glass" value="{{strGlass}}" hidden>
+    <input type="text" name="liquor" value="{{strIngredient1}}" hidden>
+          <input type="text" name="instructions" value="{{strInstructions}}" hidden>
             <button type="submit" > Add </button>
             </form>
 

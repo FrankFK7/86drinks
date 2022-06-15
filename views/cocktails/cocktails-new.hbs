@@ -1,9 +1,10 @@
-<div id="original-coccktail">
+<div id="original-cocktail">
 
 
 <h2> Create a drink 🥂 </h2>
 
-<form action="/cocktails-create" method="POST">
+<form action="/cocktails-list2" method="POST">
+
     <label>
         Title: <input type="text" name="title" />
     <label>
@@ -26,6 +27,14 @@
     <label>
         instructions:  <textarea name="instructions" cols="30" rows="4"> </textarea>
         
+    <label>
+        <label>
+
+
+            {{#each cocktailFromDB}}
+                <option value={{ _id }}> {{firstName}} {{lastName}} </option>
+            {{/each}}
+        </select>
     <label>
 
     <br>

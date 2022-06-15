@@ -2,7 +2,7 @@ const router = require("express").Router();
 const bcryptjs = require("bcryptjs");
 const mongoose = require("mongoose");
 //const axios = require ("axios");
-
+const Alcohol = require("../models/Alcohol.model");
 const User = require("../models/User.model");
 
 const { isLoggedIn, isLoggedOut } = require("../config/route-guard.config");
@@ -36,8 +36,10 @@ router.post("/create-account", (req, res, next) => {
       errorMessage:
         "Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.",
     });
-  }
-  return bcryptjs
+
+  return;
+}
+   bcryptjs
     .genSalt(saltRounds)
     .then((salt) => bcryptjs.hash(password, salt))
     .then((hashedPassword) => {
@@ -93,7 +95,7 @@ router.post("/process-login", (req, res, next) => {
     return;
   }
 
-  // use email address user inputted to check if the user exist in our DB
+  // use email address user input to check if the user exist in our DB
   User.findOne({ email })
     .then((userFromDB) => {
       // responseFromDB is a user object
@@ -143,7 +145,14 @@ router.post("/logout", (req, res, next) => {
 // GET route to display user's profile page
 //                      ✅ add ✅
 router.get("/profile", isLoggedIn, (req, res, next) => {
-  res.render("user-pages/profile-page");
+  Alcohol.find() 
+.then(cocktailsfromDB=>{
+   
+res.render("user-pages/profile-page.hbs", {cocktailsfromDB})
+})
+
+.catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))
+
 });
 
 module.exports = router;

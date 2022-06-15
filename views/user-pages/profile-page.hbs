@@ -1,10 +1,25 @@
 <div class="justify-content-left" >
 
+<h2> Alcohol </h2>
+
+<ul>
+
+    {{#each cocktailsfromDB}}
+        <li> {{ title }}  
+            {{!-- <form action="/books/{{_id}}/delete" method="post">
+                <button> Delete </button>
+            </form>
+            <a href="/books/{{_id}}/edit"> Edit </a> --}}
+        </li>
+
+    {{/each}}
+</ul>
 
 {{#if userInSession}}
 
  {{!-- <img class="rounded-circle" src='{{userInSession.profilePicture}}' alt='Profile picture'
             data-holder-rendered="true" width="250" height="250" /> --}}
+
 
 
 
