@@ -1,43 +1,53 @@
-<h2>Cocktails List </h2>
+<h2> Cocktails List </h2>
 
 <div id="random"> 
+    
 
-    <form action="//{{_id}}/edit" method="POST"></form>
-
-    <form action="/cocktails-list" method="Get" >
-    <input type="text" placeholder="Search spirits" name="searchTerm">
-
-  <button type="submit"><i class="fa fa-search"></i> Search</button>
-
+    <form action="/cocktails-list2" method="GET" >
+    <input class="form-control me-2" 
+    type="text" placeholder="Search your favorite cocktails here " aria-label="Search" name="searchTerm">
+  <button class="btn btn-outline-success" type="submit">Search</button>
 </form>
      
-             
+             <div class="container">
+               <div class="row justify-content-between">
     {{#each randomdrinks }}
     
-    <div  class="mx-auto" style="width: 300px;">
-      
-          <h4 > 
-             Cocktail: {{ strDrink }} <br>
-          Catagory: {{strCategory}} <br> 
-          Glass: {{strGlass}} <br> 
-          Ingredient: {{strIngredient1}} {{strIngredient2}} {{strIngredient3}} <br> 
-         Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>
-           <div id="imgdrink">
-                <img src="{{strDrinkThumb}}" class="rounded mx-auto d-block"alt="" data-holder-rendered="true" width="250" height="250" /> <br> 
-</div>
+    <div class="'col">
+     <div class="card" style="width:250px" >
+          <form action="/cocktails-list" method="POST"> 
+            
+          <img src="{{strDrinkThumb}}" class="card-img-top" alt="..." data-holder-rendered="true" width="250" height="250" />
+            <div class="card-body">
+    <h5 class="card-title"> Cocktail: {{ strDrink }}</h5>
+    <p class="card-text"> Catagory: {{strCategory}} <br> 
+                          Glass: {{strGlass}} <br> 
+                          Ingredient: {{strIngredient1}} {{strIngredient2}} {{strIngredient3}} <br> 
+                          Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>.</p>
+               <button  type="submit" class="btn btn-primary"> add </button>
+              </div>
+             
+            
+
+
+
         </h4> 
-    
-     <form action="/cocktails-list2" method="POST"> 
-     <br>
-  <input type="text" name="title" value="{{strDrink}}" hidden>   
-  <input type="text" name="glass" value="{{strGlass}}" hidden>
-    <input type="text" name="liquor" value="{{strIngredient1}}" hidden>
-          <input type="text" name="instructions" value="{{strInstructions}}" hidden>
-            <button type="submit" > Add </button>
-            </form>
+           
+          <input type="hidden" name="title" value="{{ strDrink }}" >
+         <input type="hidden"  name="category" value="{{strCategory}}">
+          <input type="hidden" name="glass" value="{{strGlass}}">
+        <input type="hidden"  name="ingredient" value="{{strIngredient1}} ">
+         <input type="hidden"  name="measure"  value=" {{strMeasure1}}">
+
+
+
 
             
+            </form>
+     </div>
+         </div>   
     {{/each}}
+    </div>
 
-
-</div>
+             </div>
+</div> 

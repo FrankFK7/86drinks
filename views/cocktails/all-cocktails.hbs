@@ -1,47 +1,24 @@
-{{!-- <h1> Your drinks!</h1>
+<h2>Edit drinks*</h2>
 
-<div id="allyourList">
-<ul>
-    {{#each cocktailsfromDB}}
-   
-{{ strDrink }}
-   <h2> {{title}} </h2>
 
-    {{/each}}
-    <button> <a href="/profile"> Edit drink</a></button>
-</ul>
+ {{#each cocktailfromDB}}
 
-</div> --}}
+ <form action="/cocktails-list2/{{_id}}"method="POST"> 
+     <br>
+  <input type="text" name="title" value="{{strDrink}}"hidden>   
+  <input type="text" name="glass" value="{{strGlass}}"hidden> 
+    <input type="text" name="liquor" value="{{strIngredient1}}"hidden> 
+          <input type="text" name="instructions" value="{{strInstructions}}"hidden> 
+          <div id="imgdrink">
+                <img src="{{strDrinkThumb}}" class="rounded mx-auto d-block"alt="" data-holder-rendered="true" width="250" height="250" /> <br> 
+</div>
+            </form>
+            
+    <a href="/cocktails/{{_id}}/save" method="POST"> Save </a>
 
-<h2>Edit drinks</h2>
+    <a href="/cocktails/{{_id}}/edit" method="POST"> Edit </a>
 
-<form action="/cocktails-edits/{{drinksThatWillBeEdited._id}}" method="POST">
-    <label>
-        Title: <input type="text" name="title" value="{{drinksThatWillBeEdited.title}}"/>
-    <label>
+<a href="/cocktails/{{_id}}/delete"> Delete </a>
+{{/each}}
 
-    <br>
-
-    <label>
-        glass: <input type="text" name="glass"  value="{{drinksThatWillBeEdited.glass}}"/>
-    <label>
-
-    <br>
-
-    <label>
-           liquor:<input type="text" name="liquor"  value="{{drinksThatWillBeEdited.liquor}}" />
-       
-    <label>
-
-    <br>
-
-    <label>
-        instructions:<textarea name="instructions" cols="30" rows="4"  > {{drinksThatWillBeEdited.instructions}}</textarea>
-        
-    <label>
-
-    <br>
-
-    <button type='submit'> Save </button>
 </form>
-<button> <a href="/cocktails-details"> details-list!</a></button>

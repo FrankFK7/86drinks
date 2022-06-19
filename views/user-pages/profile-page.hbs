@@ -1,17 +1,19 @@
 <div class="justify-content-left" >
 
-<h2> Alcohol </h2>
+<h1 id=  "Welcome">Welcome, {{ userInSession.username }} </h1>
 
 <ul>
+    
 
     {{#each cocktailsfromDB}}
-        <li> {{ title }}  
+
+        <li> <a href="/alcohol/{{_id}}"> {{ title }}  </a> </li>
+
             {{!-- <form action="/books/{{_id}}/delete" method="post">
                 <button> Delete </button>
             </form>
             <a href="/books/{{_id}}/edit"> Edit </a> --}}
-        </li>
-
+       
     {{/each}}
 </ul>
 
@@ -25,7 +27,7 @@
 
 <br>
    
-<h1 id=  "Welcome">Welcome, {{ userInSession.username }} </h1>
+
  
 <div class="btn-group">
   <a href="/cocktails-create" class="btn btn-warning"
