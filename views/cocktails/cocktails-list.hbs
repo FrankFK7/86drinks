@@ -3,19 +3,19 @@
 <div id="random"> 
     
 
-    <form action="/cocktails-list2" method="GET" >
+    <form action="/cocktailSearch" method="GET" >
     <input class="form-control me-2" 
-    type="text" placeholder="Search your favorite cocktails here " aria-label="Search" name="searchTerm">
+    type="text" placeholder="Search by alcohol " aria-label="Search" name="searchTerm">
   <button class="btn btn-outline-success" type="submit">Search</button>
-</form>
+
      
              <div class="container">
                <div class="row justify-content-between">
-    {{#each randomdrinks }}
+    {{#each randomDrinks }}
     
     <div class="'col">
      <div class="card" style="width:250px" >
-          <form action="/cocktails-list" method="POST"> 
+          <form action="/addFavorite" method="POST"> 
             
           <img src="{{strDrinkThumb}}" class="card-img-top" alt="..." data-holder-rendered="true" width="250" height="250" />
             <div class="card-body">
@@ -24,7 +24,7 @@
                           Glass: {{strGlass}} <br> 
                           Ingredient: {{strIngredient1}} {{strIngredient2}} {{strIngredient3}} <br> 
                           Measure: {{strMeasure1}} ,{{strMeasure2}} {{strMeasure3}} <br>.</p>
-               <button  type="submit" class="btn btn-primary"> add </button>
+                 <button>Add</button>
               </div>
              
             
@@ -39,7 +39,7 @@
         <input type="hidden"  name="ingredient" value="{{strIngredient1}} ">
          <input type="hidden"  name="measure"  value=" {{strMeasure1}}">
 
-
+<option value={{ _id }}> {{firstName}} {{lastName}} </option>
 
 
             

@@ -1,9 +1,10 @@
-<h2>Edit drinks*</h2>
+{{!-- cocktail-details --}}
+<h2>Edit drinks</h2>
 
 
  {{#each cocktailfromDB}}
 
- <form action="/cocktails-list2/{{_id}}"method="POST"> 
+ <form action="/cocktailSearch/{{_id}}"method="POST"> 
      <br>
   <input type="text" name="title" value="{{strDrink}}"hidden>   
   <input type="text" name="glass" value="{{strGlass}}"hidden> 
@@ -14,11 +15,7 @@
 </div>
             </form>
             
-    <a href="/cocktails/{{_id}}/save" method="POST"> Save </a>
-
-    <a href="/cocktails/{{_id}}/edit" method="POST"> Edit </a>
-
-<a href="/cocktails/{{_id}}/delete"> Delete </a>
+    
 {{/each}}
 
 </form>
