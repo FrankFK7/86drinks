@@ -46,13 +46,13 @@ router.get("/cocktailSearch",  (req, res, next) => {
 });
 
 router.post("/cocktailSearch",  (req, res) => {
-   // console.log("search results" , newCocktailFromDB)
+   // console.log("search results" , cocktailFromDB)
 
     const { title,glass,instructions,liqour } = req.body
 
 Alcohol.create({ title,glass,instructions,liqour})
-.then((newCocktailFromDB)=>{
-    //console.log("new drink: ", newCocktailFromDB);
+.then((cocktailFromDB)=>{
+    //console.log("new drink: ", CocktailFromDB);
    
 
    res.redirect("/profile")
@@ -68,8 +68,8 @@ Alcohol.create({ title,glass,instructions,liqour})
 router.get("/cocktails-create",(req, res, )=>{
     res.render("cocktails/cocktails-new.hbs")
     Alcohol.find()
-    .then(newCocktailFromDB => {
-        res.render("user-pages/profile-page.hbs", {newCocktailFromDB} )
+    .then(cocktailFromDB => {
+        res.render("user-pages/profile-page.hbs", {cocktailFromDB} )
 })
 .catch(err => console.error ("Error while making a new drink in the DB: ", err))
 })
@@ -84,8 +84,8 @@ router.post("/cocktails-create", (req, res) => {
     const { title,glass,instructions,liqour } = req.body;
 
     Alcohol.create({ title,glass,instructions,liqour })
-    .then(newCocktailFromDB => {
-        //console.log("this is new cocktail: ", newCocktailFromDB);
+    .then(cocktailFromDB => {
+        //console.log("this is new cocktail: ", CocktailFromDB);
 
         res.redirect("/profile");
     })
@@ -95,40 +95,20 @@ router.post("/cocktails-create", (req, res) => {
 // -------------------------------------------------------------------------------------------------------------------//
 
 // ************************************************
-// GET Route: PREFILL A BOOK DETAILS TO ENABLE EDITING ROUTE
+// GET Route: PREFILL A drink DETAILS TO ENABLE EDITING ROUTE
 // ************************************************
 
-router.get("/cocktails-details", (req, res) => {
-    Alcohol.findByIdAndUpdate(req.params.cocktailId)
-    .then(cocktailToUpdate => {
-        //console.log("added drink here")
-        res.render("user-pages/profile-page.hbs", cocktailToUpdate)
-    })
-    .catch(err => console.log("Error while getting a drink to be edited from the DB: ", err))
-})
-
+router.get("/cocktails-details/:id", (req, res, next) => {
+    Alcohol.findById(req.params.id)
+      .then((cocktail) => {
+        res.render("cocktails/cocktails-details", { cocktail });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  })
 // <form action="/books/{{_id}}/edit" method="POST">
-router.post("/cocktails-details/:drinksThatWillBeEdited", (req, res) => {
 
-    const { title, glass, measure, ingredient } = req.body
-Alcohol.findByIdAndUpdate(req.params.drinksThatWillBeEdited,{title, glass, measure, ingredient}, {new: true})
-
-
-.then(cocktailToUpdate =>{
-    Alcohol.find({creator:req.session.currentUser._id}) 
-
-.then(cocktailToUpdate =>{
-    console.log(cocktailToUpdate)
-    res.render("user-pages/profile-page",{cocktailToUpdate})
-    })  
-    .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))   
-    
-
-})
-
-.catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))   
-
-})
 
 // ************************************************
 // 
@@ -140,3 +120,4 @@ Alcohol.findByIdAndUpdate(req.params.drinksThatWillBeEdited,{title, glass, measu
 
 
 module.exports = router
+

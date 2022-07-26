@@ -14,10 +14,10 @@
     {{#each randomDrinks }}
     
     <div class="'col">
-     <div class="card" style="width:250px" >
-          <form action="/addFavorite" method="POST"> 
+     <div class="card" style="width:255px" >
+          <form action="/cocktails-list" method="POST"> 
             
-          <img src="{{strDrinkThumb}}" class="card-img-top" alt="..." data-holder-rendered="true" width="250" height="250" />
+          <img src="{{strDrinkThumb}}" class="card-img-top" alt="..." data-holder-rendered="true" width="255" height="255" />
             <div class="card-body">
     <h5 class="card-title"> Cocktail: {{ strDrink }}</h5>
     <p class="card-text"> Catagory: {{strCategory}} <br> 
@@ -51,3 +51,5 @@
 
              </div>
 </div> 
+
+
