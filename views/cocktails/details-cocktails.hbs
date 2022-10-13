@@ -1,0 +1,26 @@
+<h1>All Cocktails-List</h1>
+
+
+<ul class="list-group list-group-flush">
+
+    {{#each cocktailfromDB}}
+    
+
+    <h2 class="list-group-item">{{title}}</h2>
+    <li class="list-group-item">{{category}}</li>
+    <li class="list-group-item">{{glass}}</li>
+    <li class="list-group-item">{{measure}}</li>
+    <li class="list-group-item">{{ingredient}}</li>
+    
+    <br>
+
+    <br>
+    <form action="/cocktails-delete/{{_id}}" method="POST">
+       <button type='submit' class="btn btn-outline-danger">Remove</button>
+    </form>
+    
+
+    {{/each}}
+
+     
+</ul>

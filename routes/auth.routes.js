@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const bcryptjs = require("bcryptjs");
 const mongoose = require("mongoose");
-//const axios = require ("axios");
 const Alcohol = require("../models/Alcohol.model");
+const Cocktail = require("../models/Cocktail.model")
 const User = require("../models/User.model");
 
 const { isLoggedIn, isLoggedOut } = require("../config/route-guard.config");
@@ -146,9 +146,9 @@ router.post("/logout", (req, res, next) => {
 //                      ✅ add ✅
 router.get("/profile", isLoggedIn, (req, res, next) => {
   Alcohol.find() 
-.then(cocktailsfromDB=>{
+.then(cocktailFromDB=>{
    
-res.render("user-pages/profile-page.hbs", {cocktailsfromDB})
+res.render("user-pages/profile-page.hbs", {cocktailFromDB})
 })
 
 .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))

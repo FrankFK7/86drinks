@@ -1,68 +1,24 @@
-{{!-- cocktail-details --}}
-<h2>Edit drinks</h2>
+<h1> Cocktails </h1>
 
+<div class="container">
+<div class="row justify-content-space">
+     
+{{#each cocktailfromDB}}
 
- {{#each cocktailFromDB}}
-
- <form action="/cocktailSearch"method="POST"> 
-     <br>
-  <input type="text" name="title" value="{{strDrink}}"hidden>   
-  <input type="text" name="glass" value="{{strGlass}}"hidden> 
-    <input type="text" name="liquor" value="{{strIngredient1}}"hidden> 
-          <input type="text" name="instructions" value="{{strInstructions}}"hidden> 
-          <div id="imgdrink">
-                <img src="{{strDrinkThumb}}" class="rounded mx-auto d-block"alt="" data-holder-rendered="true" width="250" height="250" /> <br> 
+<div class="col">
+      <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+           <div class="card-header"> {{title}}</div>
+        <div class="card-body">
+          <h5 class="card-title"> <button  class="btn btn-dark"> <a href="/cocktails-edits/{{_id}}/edit"> Edit!</a></button></h5>
+          <p class="card-text"></p>
+        </div>
+       </div>
 </div>
-            </form>
-            
-    
-{{/each}}
-<option value={{ _id }}> {{firstName}} {{lastName}} </option>
-</form>
 
 
-{{!-- <div id="original-cocktail">
+ {{/each}}
 
+  </div>
+ </div>
+</div>
 
-<h2> Create a drink 🥂 </h2>
-{{!-- adds drink to the list --}}
-<form action="/cocktailSearch" method="POST">
-
-    <label>
-        Title: <input type="text" name="title" />
-    <label>
-
-    <br>
-
-    <label>
-        glass <input type="text" name="glass" />
-    <label>
-
-    <br>
-
-    <label>
-           liquor :<input type="text" name="liquor" />
-       
-    <label>
-
-    <br>
-
-    <label>
-        instructions:  <textarea name="instructions" cols="30" rows="4"> </textarea>
-        
-    <label>
-        <label>
-
-
-            {{#each cocktailFromDB}}
-                <option value={{ _id }}> {{firstName}} {{lastName}} </option>
-            {{/each}}
-        </select>
-    <label>
-
-    <br>
-
-    <button> <a href="/profile"> </a>Save</button>
-</form>
-
-</div> --}}

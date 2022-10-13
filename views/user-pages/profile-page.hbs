@@ -1,54 +1,53 @@
-<div class="justify-content-left" >
+<div class="pro-page" >
 
-<h1 id=  "Welcome">Welcome, {{ userInSession.username }} </h1>
-
-<ul>
-    
-
-    {{#each cocktailsfromDB}}
-
-        <li> <a href="/Alcohol{{_id}}"> {{ title }} 
-    <br>
-  <input type="text" name="title" value="{{strDrink}}"hidden>   
-  <input type="text" name="glass" value="{{strGlass}}"hidden> 
-    <input type="text" name="liquor" value="{{strIngredient1}}"hidden> 
-          <input type="text" name="instructions" value="{{strInstructions}}"hidden> 
-          
-    </li>
-
-            
-       
-    {{/each}}
-</ul>
 
 {{#if userInSession}}
+    <h3 id="welcome">Welcome, {{ userInSession.username }}</h3>
 
  {{!-- <img class="rounded-circle" src='{{userInSession.profilePicture}}' alt='Profile picture'
             data-holder-rendered="true" width="250" height="250" /> --}}
 
 
 
-
 <br>
    
 
- 
-<div class="btn-group">
-  <a href="/cocktails-create" class="btn btn-warning"
-  style =
-    "color: #ffc107;
-    background-color: #007bff;
-    border-color: #c707ff"
->Create A Drink*</a>
+<div class="btn-group-pro list-group list-group-horizontal">
+  <a href="/all-cocktails" class="btn btn-warning  btn-lg btn-block" aria-current="page">Cocktails Update</a> <br>
+  <a href="/cocktails-create" class="btn btn-warning  btn-lg btn-block" >Create Cocktails</a>
+
 </div>
 
-<div class="btn-group">
-<a href="/cocktails-details" class="btn btn-warning"
-style =
-    "color: #ffc107;
-    background-color: #007bff;
-    border-color: #c707ff"
->Edit Drink List*</a>
+<div class="container">
+   <div class="row justify-content-around">
+   
+
+    {{#each cocktailfromDB}}
+     <div class="'col">
+     
+
+    <h2 class="list-group-item">Title:  {{title}}</h2>
+    <li class="list-group-item">Category: {{category}}</li>
+    <li class="list-group-item">Glass:  {{glass}}</li>
+    <li class="list-group-item">Measure: {{measure}}</li>
+    <li class="list-group-item">Ingredient: {{ingredient}}</li>
+   
+    <br>
+
+    <br>
+    <form action="/cocktails-delete/{{_id}}" method="POST">
+       <button type='submit' class="btn btn-outline-danger">Remove</button>
+    </form>
+     </div>
+
+    
+
+    {{/each}}
+
+     
+</ul>
+</div>
+</div>
 </div>
 
 {{else}}

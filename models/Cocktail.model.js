@@ -1,12 +1,12 @@
 const { Schema, model } = require("mongoose");
 
-const alcoholSchema = new Schema(
+const cocktailSchema = new Schema(
   {
     // title: {type: String, unique: true},
      title: String,
      glass: String,
      liquor: String,
-    measure: String,
+    instructions: String,
     
     creator: {
         type: Schema.Types.ObjectId,
@@ -24,4 +24,4 @@ const alcoholSchema = new Schema(
 
 
 
-module.exports = model("Alcohol", alcoholSchema);
+module.exports = model("Drink", cocktailSchema);

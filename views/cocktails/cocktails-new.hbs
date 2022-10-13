@@ -4,42 +4,37 @@
 <h2> Create a drink 🥂 </h2>
 {{!-- adds drink to the list --}}
 <form action="/cocktailSearch" method="POST">
-
+<li>
     <label>
         Title: <input type="text" name="title" />
     <label>
-
-    <br>
-
-    <label>
+</li>
+  <br>
+  <li><label>
         glass <input type="text" name="glass" />
     <label>
-
-    <br>
-
-    <label>
+</li>
+<br>
+<li><label>
            liquor :<input type="text" name="liquor" />
        
-    <label>
-
+    <label></li>
     <br>
-
-    <label>
+    <li><label>
         instructions:  <textarea name="instructions" cols="30" rows="4"> </textarea>
         
-    <label>
+    <label></li>
+    
         <label>
-
-
             {{#each cocktailFromDB}}
                 <option value={{ _id }}> {{firstName}} {{lastName}} </option>
             {{/each}}
         </select>
     <label>
 
-    <br>
-
-    <button> <a href="/profile"> </a>Save</button>
+  </li>
+  <br>
+<button> <a href="/profile"> </a>Save</button>
 </form>
 
 </div>
