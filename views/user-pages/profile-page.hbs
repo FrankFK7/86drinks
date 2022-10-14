@@ -2,6 +2,7 @@
 
 
 {{#if userInSession}}
+<br>
     <h3 id="welcome">Welcome, {{ userInSession.username }}</h3>
 
  {{!-- <img class="rounded-circle" src='{{userInSession.profilePicture}}' alt='Profile picture'
@@ -9,12 +10,10 @@
 
 
 
-<br>
-   
-
-<div class="btn-group-pro list-group list-group-horizontal">
-  <a href="/all-cocktails" class="btn btn-warning  btn-lg btn-block" aria-current="page">Cocktails Update</a> <br>
-  <a href="/cocktails-create" class="btn btn-warning  btn-lg btn-block" >Create Cocktails</a>
+  <br>
+  <a href="/all-cocktails" class="btn btn-warning  btn-lg btn-block" aria-current="page">Edit Drinks</a> 
+  <br>
+  <a href="/cocktails-create" class="btn btn-warning  btn-lg btn-block" >Create A Cocktail</a>
 
 </div>
 

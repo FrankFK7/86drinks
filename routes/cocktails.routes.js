@@ -103,81 +103,45 @@ router.post("/cocktails-create", (req, res) => {
   
 // -------------------------------------------------------------------------------------------------------------------//
 
-// ************************************************
-// GET Route: PREFILL A DRINK DETAILS TO ENABLE EDITING ROUTE
-// ************************************************
- 
-//  route to show all-cocktails that were saved for user editing
-// router.get("/cocktails/:drinkId", (req, res) => {
-//     Alcohol.findById(req.params.drinkId)
-//     .then(cocktailFromDB => {
-//         console.log("added drink here", cocktailFromDB.title)
-//         res.render("cocktails/all-cocktails.hbs" )
-//     })
-//     .catch(err => console.log("Error while getting a drink to be edited from the DB: ", err))
-// })
-
 
 // ************************************************
 //----------------EDIT-----EDIT----------EDIT------EDIT------//
 // ************************************************
 
-// router.get("/edit-cocktails/:Id", (req, res) => {
-//     Alcohol.findById(req.params.Id)
-//   .then( cocktailFromDB => {
-//       res.render("cocktails/all-cocktails.hbs", { cocktailFomDB} )
 
-//   })
-//   .catch(err => console.log(`Error while getting the drinks to edit: ${err}`))     
-// })
+router.get("/cocktails-edits/:cocktailid/edit", (req, res, next) => {
+    Alcohol.findById(req.params.cocktailid)
+  .then(drinksThatWillBeEdited => {
+      res.render("cocktails/cocktails-edits", {drinksThatWillBeEdited} )
 
-
-
-
-// router.post("/all-cocktails/:id", (req, res) => {
-//   const { title, glass, measure, ingredient } = req.body
-// Alcohol.findByIdAndUpdate(req.params.id,{title, glass, measure, ingredient}, {new: true})
+  })
+  .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))     
+})
 
 
 
 
-// .then(cocktailFromDB =>{
-//   //console.log(cocktailFromDb)
-//   res.render("user-pages/profile-page",{cocktailFromDB})
-//   })  
-//   .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))   
+router.post("/cocktails-edits/:drinksThatWillBeEdited", (req, res, next) => {
+
+  const { title, glass, measure, ingredient } = req.body
+Alcohol.findByIdAndUpdate(req.params.drinksThatWillBeEdited,{title, glass, measure, ingredient}, {new: true})
+
+
+.then(cocktailfromDB =>{
+  Alcohol.find({creator:req.session.currentUser._id}) 
+
+.then(cocktailfromDB =>{
+  console.log(cocktailfromDB)
+  res.render("user-pages/profile-page",{cocktailfromDB})
+  })  
+  .catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))   
   
 
-// })
-
-router.get("/cocktails-edits/:cocktailid/edit",(req, res, )=>{
-    res.render("cocktails/all-cocktails.hbs")
-    Alcohol.find()
-    .then(editcocktailFromDb => {
-        res.render("user-pages/profile-page.hbs", {editcocktailFromDb} )
-})
-.catch(err => console.error ("Error while making a new drink in the DB: ", err))
 })
 
-// 2. create a route to pick up what user inputted in these fields and save it to the database
+.catch(err => console.log(`Error while getting the drinks from the DB: ${err}`))   
 
-{/* <form action="/cocktails/new" method="POST"> */}
-
-router.post("/all-cocktails", (req, res) => {
-    console.log("this is what user added in the form: ", req.body);
-
-    const { title,glass,instructions,liqour } = req.body;
-
-    Alcohol.create({ title,glass,instructions, category,ingredient, measure,
-        creator:req.session.currentUser._id})
-    .then(cocktailFromDb => {
-        console.log("this is a new drink: ", cocktailFromDb);
-       // res.render("cocktails/cocktails-new",{cocktailfromDB});
-        // res.redirect("/profile");
-    })
-    .catch(err => console.log("Error while saving a new drink in the DB: ", err))
 })
-  
 
 // ************************************************
 //----------------Details-----Details----------Details------Details------//
@@ -206,10 +170,6 @@ router.get("/details-cocktails", (req, res, next) => {
     
          })
 
-// ************************************************
-//----------------Delete-----Delete----------Delete------Delete------//
-// ************************************************
-
          router.post("/cocktails-list",  (req, res, next) => {
             const { title, category, glass, ingredient, measure} = req.body
         console.log(req.body)
@@ -225,6 +185,9 @@ router.get("/details-cocktails", (req, res, next) => {
             })
         })
         
+// ************************************************
+//----------------Delete-----Delete----------Delete------Delete------//
+// ************************************************
         
         router.get("/details-cocktails/cocktails-delete", (req, res, next) => {
              Alcohol.find({creator:req.session.currentUser._id})
