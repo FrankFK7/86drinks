@@ -1,8 +1,11 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: whitesmoke;
+  background-color: rgb(6, 1, 1);
   background-image: url("https://wallpaperaccess.com/full/3378467.jpg") ;
+}
+style attribute {
+  color: hsl(200, 23%, 97%);
 }
 h1{
   justify-content: center;
@@ -45,14 +48,44 @@ a {
 }
 .btn-outline-success {
   color: #fcfcfc;
-  background-color: #0c78e3;
-  border-color: whitesmoke);
+  background-color: #061c321b;
+  border-color: whitesmoke;
 }
   .btn-outline-success:hover {
     color: #00b7ff;
     background-color: #fcfcfc;
-    border-color: whitesmoke;
+    border-color: rgb(237, 4, 4);
 }
+.btn-warning {
+  color: #dfe3e7;
+  background-color: #0c0c0c03;
+  border-color: #07f7ff;
+}
+.btn-warning:hover {
+  color: #212529;
+  background-color: #f3f1ed5e;
+  border-color: #1c00d3;
+}
+.bg-primary {
+  background-color: #0000008f!important;
+}
+.bg-light {
+    background-color: #ffffff3b!important;
+}
+.btn-primary {
+  color: #004dff;
+  background-color: #7aa8d900;
+  border-color: #ffffff;
+}
+
 .card{
   background-color: transparent;
+  border: 1px solid rgb(250 250 250)
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 0.75rem 1.25rem;
+  background-color: #a05b5b00;
+  border: 1px solid rgba(0,0,0,.125);
 }
